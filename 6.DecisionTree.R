@@ -17,11 +17,11 @@ load("Data_traintest.R")
 # # # FOR WINE DATA SET BEFORE NORMALIZATION wine_imputed
 
 # Decision tree model with defaults
-fit = C5.0(quality~ . , data= wine_train[-c(12,8,3,1)], method = 'class')
-pred= predict(fit, wine_test[-13], type= 'class')
+fit <- C5.0(quality~ . , data= wine_train[-c(12,8,3,1)], method = 'class')
+pred <- predict(fit, wine_test[-13], type= 'class')
 
 # building confusion matrix
-xtab1= table(pred, wine_test[,13])
+xtab1 <- table(pred, wine_test[,13])
 confusionMatrix(xtab1)
 
 
@@ -29,11 +29,11 @@ confusionMatrix(xtab1)
 # # # FOR WINE DATA SET AFTER NORMALIZATION wine_norm
 
 # Decision tree model with defaults
-fit = C5.0(quality~ . , data= wine_norm_train[-c(12,1)], method = 'class')
-pred= predict(fit, wine_norm_test[-13], type= 'class')
+fit <- C5.0(quality~ . , data= wine_norm_train[-c(12,1)], method = 'class')
+pred <- predict(fit, wine_norm_test[-13], type= 'class')
 
 # building confusion matrix
-xtab1= table(pred, wine_norm_test[,13])
+xtab1 <- table(pred, wine_norm_test[,13])
 confusionMatrix(xtab1)
 # AUC 57.5
 
@@ -42,22 +42,22 @@ confusionMatrix(xtab1)
 # auc 58
 
 # Decision tree model with defaults
-fit = J48(quality~ . , data= wine_train)
-pred= predict(fit, wine_test[-13])
+fit <- J48(quality~ . , data= wine_train)
+pred <- predict(fit, wine_test[-13])
 
 # building confusion matrix
-xtab1= table(pred, wine_test[,13])
+xtab1 <- table(pred, wine_test[,13])
 confusionMatrix(xtab1)
 
 # AUC 58
 
 
 # Decision tree model with defaults
-fit = J48(quality~ . , data= wine_train, control= Weka_control(R = TRUE, M = 5) )
-pred= predict(fit, wine_test[-13])
+fit <- J48(quality~ . , data= wine_train, control= Weka_control(R = TRUE, M = 5) )
+pred <- predict(fit, wine_test[-13])
 
 # building confusion matrix
-xtab1= table(pred, wine_test[,13])
+xtab1 <- table(pred, wine_test[,13])
 confusionMatrix(xtab1)
 
 # AUC 54.31 
