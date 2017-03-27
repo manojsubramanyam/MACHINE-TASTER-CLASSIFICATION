@@ -17,14 +17,14 @@ load("DataWine1.R")
 # outlier analysis on wine
 
 # considering outliers count for each variable
-wine_out=NULL
-wine_out= data.frame(var= character(), outlier_number= character(), stringsAsFactors = F)
+wine_out <- NULL
+wine_out <- data.frame(var= character(), outlier_number= character(), stringsAsFactors = F)
 for ( i in 1:ncol(wine[1:11])){
   val= wine[,i][wine[,i] %in% boxplot.stats(wine[,i])$out]
   wine_out= rbind(wine_out, data.frame(colnames(wine[i]),length(val),round((length(val)/ length(wine[,i]))*100, digits=2 )))
   row.names(wine_out)= NULL
 }
-names(wine_out)= c("Variables","Outliers","Percentage")
+names(wine_out) <- c("Variables","Outliers","Percentage")
 
 # wine_out gives us the outlier information 
 wine_out
@@ -103,7 +103,7 @@ for ( i in 1:ncol(wine[1:11])){
 
 # Imputing with knnImputation
 
-wine_imputed= knnImputation(wine)
+wine_imputed <- knnImputation(wine)
 
 
 
