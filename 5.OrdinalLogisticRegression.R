@@ -18,19 +18,19 @@ load("Data_traintest.R")
 # # # FOR WINE DATA SET BEFORE NORMALIZATION wine_imputed
 # # Logistic regression model
 # default and base model
-lr_model = polr(quality ~. , data = wine_train[-c(12,8,1,3)], Hess=TRUE, method= "logistic")
-pred= predict(lr_model, wine_test[-13])
+lr_model <- polr(quality ~. , data = wine_train[-c(12,8,1,3)], Hess=TRUE, method= "logistic")
+pred <- predict(lr_model, wine_test[-13])
 
 # building confusion matrix
-xtab1= table(pred, wine_test[,13])
+xtab1 <- table(pred, wine_test[,13])
 confusionMatrix(xtab1)
 
 # Ordinal regression with probit method
-pr_model = polr(quality ~. , data = wine_train[-c(12,8,1,3)], Hess=TRUE, method= "probit")
-pred= predict(pr_model, wine_test[-13])
+pr_model <- polr(quality ~. , data = wine_train[-c(12,8,1,3)], Hess=TRUE, method= "probit")
+pred <- predict(pr_model, wine_test[-13])
 
 # building confusion matrix
-xtab2= table(pred, wine_test[,13])
+xtab2 <- table(pred, wine_test[,13])
 confusionMatrix(xtab2)
 
 
@@ -38,17 +38,17 @@ confusionMatrix(xtab2)
 # # # FOR WINE DATA SET AFTER NORMALIZATION wine_norm
 # # Logistic regression model
 # default and base model
-lr_model = polr(quality ~. , data = wine_norm_train[-c(12,8,1,3)], Hess=TRUE, method= "logistic")
-pred= predict(lr_model, wine_norm_test[-13])
+lr_model <- polr(quality ~. , data = wine_norm_train[-c(12,8,1,3)], Hess=TRUE, method= "logistic")
+pred <- predict(lr_model, wine_norm_test[-13])
 
 # building confusion matrix
-xtab1= table(pred, wine_norm_test[,13])
+xtab1 <- table(pred, wine_norm_test[,13])
 confusionMatrix(xtab1)
 
 # Ordinal regression with probit method
-pr_model = polr(quality ~. , data = wine_norm_train[-c(12,8,1,3)], Hess=TRUE, method= "probit")
-pred= predict(pr_model, wine_norm_test[-13])
+pr_model <- polr(quality ~. , data = wine_norm_train[-c(12,8,1,3)], Hess=TRUE, method= "probit")
+pred <- predict(pr_model, wine_norm_test[-13])
 
 # building confusion matrix
-xtab2= table(pred, wine_norm_test[,13])
+xtab2 <- table(pred, wine_norm_test[,13])
 confusionMatrix(xtab2)
