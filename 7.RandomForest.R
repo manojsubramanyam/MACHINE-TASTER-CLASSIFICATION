@@ -20,10 +20,10 @@ load("Data_traintest.R")
 # # # FOR WINE DATA SET BEFORE NORMALIZATION wine_imputed
 
 # random forest model
-rf_model= randomForest(quality~. , data= wine_train[-c(12,8)], ntree= 500)
-pred= predict(rf_model, wine_test[-13])
+rf_model <- randomForest(quality~. , data= wine_train[-c(12,8)], ntree= 500)
+pred <- predict(rf_model, wine_test[-13])
 
-xtab1= table(pred, wine_test[,13])
+xtab1 <- table(pred, wine_test[,13])
 confusionMatrix(xtab1)
 
 # save(rf_model, file = 'rf_model70_08.rda')
@@ -34,8 +34,8 @@ confusionMatrix(xtab1)
 # # # FOR WINE DATA SET AFTER NORMALIZATION wine_norm
 
 # random forest model
-rf_model= randomForest(quality~. , data= wine_norm_train[-c(12,8)], ntree= 500)
-pred= predict(rf_model, wine_norm_test[-13])
+rf_model <- randomForest(quality~. , data= wine_norm_train[-c(12,8)], ntree= 500)
+pred <- predict(rf_model, wine_norm_test[-13])
 
-xtab2= table(pred, wine_norm_test[,13])
+xtab2 <- table(pred, wine_norm_test[,13])
 confusionMatrix(xtab2)
