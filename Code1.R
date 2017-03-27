@@ -14,17 +14,17 @@ library(dplyr)
 
 
 # loading data sets
-red= read.csv(file="winequality-red.csv", sep= ";")
-white= read.csv(file= "winequality-white.csv", sep= ";")
+red <- read.csv(file="winequality-red.csv", sep= ";")
+white <- read.csv(file= "winequality-white.csv", sep= ";")
 
-red$type= factor("red")
-white$type= factor("white")
-red$quality= factor(red$quality)
-white$quality= factor(white$quality)
+red$type <- factor("red")
+white$type <- factor("white")
+red$quality <- factor(red$quality)
+white$quality <- factor(white$quality)
 
 # creating master data set wine
-wine= rbind(red,white)
-wine= wine[,c(1:11,13,12)]
+wine <- rbind(red,white)
+wine <- wine[,c(1:11,13,12)]
 # checking the data types and structure
 head(wine)
 str(wine)
@@ -105,15 +105,15 @@ ggplot(data= wine,  aes(x= (quality), fill=type)) +
 # taking out quality and type for normalization
 # Normalizing data to get boxplot in same range
 
-wine_norm = data.Normalization(wine[-c(12,13)], type = "n4", normalization = "column")
-wine_norm$type= wine$type # adding type back after normalization
+wine_norm <- data.Normalization(wine[-c(12,13)], type = "n4", normalization = "column")
+wine_norm$type <- wine$type # adding type back after normalization
 
-melt.wine= melt(wine_norm, id.vars = "type")
+melt.wine <- melt(wine_norm, id.vars = "type")
 
 # plotting outliers 
 
-ggplot(data= melt.wine, aes(x= variable, y= value))+ geom_boxplot(aes(fill= type))+
-  labs(title= "Boxplot and data point distribution of all Variables of Master data set w.r.t 'type'  variable", x= "Variables", y= "Range")+
+ggplot(data <- melt.wine, aes(x= variable, y= value))+ geom_boxplot(aes(fill= type))+
+  labs(title <- "Boxplot and data point distribution of all Variables of Master data set w.r.t 'type'  variable", x= "Variables", y= "Range")+
   facet_grid( ~ variable, scales="free")
 
 
