@@ -18,7 +18,7 @@ library(usdm) # for checking variance inflation factor
 load(file = "DataWine2.R")
 
 #Normalizing Data 
-wine_norm = data.Normalization(wine_imputed[-c(12, 13)], type = "n4", normalization = "column")
+wine_norm <- data.Normalization(wine_imputed[-c(12, 13)], type = "n4", normalization = "column")
 
 
 # Checking Correlation between variables.
@@ -41,10 +41,10 @@ cor(wine_norm, use = "complete.obs", method= "spearman")
 
 # checking variable imporntance using random forest
 # changes red to '0' and white to '1' for simpler representation
-wine_norm$type= factor(wine_imputed$type, labels= 0:(length(levels(wine_imputed$type))-1))
-wine_norm$quality= wine_imputed$quality
+wine_norm$type <- factor(wine_imputed$type, labels= 0:(length(levels(wine_imputed$type))-1))
+wine_norm$quality <- wine_imputed$quality
 
-var_imp= randomForest(quality~. , data= wine_norm, ntree= 500, importance= T)
+var_imp <- randomForest(quality~. , data= wine_norm, ntree= 500, importance= T)
 importance(var_imp,type=1)
 
 varImpPlot(var_imp, color = '#0d2f66')
