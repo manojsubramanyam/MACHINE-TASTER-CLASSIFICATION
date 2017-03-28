@@ -109,4 +109,3 @@ wine_imputed <- knnImputation(wine)
 
 # saving the data structures for further script files
 save(list=c('red','white','wine_imputed'),file="DataWine2.R")
-
