@@ -61,4 +61,3 @@ vif(wine_norm[-c(12,13)])
 
 # saving all data structures for next code 
 save(list=c('red','white','wine_imputed','wine_norm') ,file= "DataWine3.R")
-
