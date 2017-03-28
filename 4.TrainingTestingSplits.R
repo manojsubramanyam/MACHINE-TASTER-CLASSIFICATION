@@ -24,4 +24,3 @@ wine_norm_test <- subset(wine_norm, spl== F)
 
 # saving data structures of training and test data sets for further usuage
 save(list=c('wine_train','wine_test','wine_norm_train','wine_norm_test'), file = "Data_traintest.R")
-
