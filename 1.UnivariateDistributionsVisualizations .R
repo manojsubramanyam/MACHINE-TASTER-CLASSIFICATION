@@ -121,5 +121,3 @@ ggplot(data <- melt.wine, aes(x= variable, y= value))+ geom_boxplot(aes(fill= ty
 
 # saving the data structure to use in other scripts
 save(list=c('red','white','wine'), file= "DataWine1.R")
-
-
